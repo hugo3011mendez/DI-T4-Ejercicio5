@@ -60,6 +60,7 @@
             this.btnAnhadir.TabIndex = 2;
             this.btnAnhadir.Text = "Añadir";
             this.btnAnhadir.UseVisualStyleBackColor = true;
+            this.btnAnhadir.Click += new System.EventHandler(this.btnAnhadir_Click);
             // 
             // txtAnhadir
             // 
@@ -88,6 +89,7 @@
             this.btnQuitar.TabIndex = 5;
             this.btnQuitar.Text = "Quitar";
             this.btnQuitar.UseVisualStyleBackColor = true;
+            this.btnQuitar.Click += new System.EventHandler(this.btnQuitar_Click);
             // 
             // btnTraspasarIzq
             // 
