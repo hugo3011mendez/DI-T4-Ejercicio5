@@ -24,13 +24,15 @@ namespace Ejercicio5
         // Función que contiene las acciones a realizar cuando se pulsa el botón añadir
         private void btnAnhadir_Click(object sender, EventArgs e)
         {
-            if (txtAnhadir.Text == "")
+            if (txtAnhadir.Text == "") // Indico el error si no se ha escrito nada en la caja de texto
             {
                 MessageBox.Show("Debes escribir algo para añadir!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
+                // Si está bien, añado lo escrito a la ListBox y actualizo la etiqueta que muestra el tamaño de la ListBox1
                 listBox1.Items.Add(txtAnhadir.Text);
+                lblTamanho.Text = "Tamaño de la lista 1 : " + listBox1.Items.Count;
             }
         }
 
@@ -50,7 +52,7 @@ namespace Ejercicio5
                 {
                     seleccionados = listBox2.SelectedItems; // Establezco la variable seleccionados y la igualo a la colección de items seleccionados
 
-                    for (int i = 0; i < seleccionados.Count; i++) // Recorro los items seleccionados
+                    for (int i = seleccionados.Count - 1; i >= 0; i--) // Recorro los items seleccionados
                     {
                         listBox2.Items.Remove(seleccionados[i]); // Y los elimino de la ListBox correspondiente
                     }
@@ -60,7 +62,7 @@ namespace Ejercicio5
             {
                 seleccionados = listBox1.SelectedItems; // Establezco la variable seleccionados y la igualo a la colección de items seleccionados 
 
-                for (int i = 0; i < seleccionados.Count; i++) // Recorro los items seleccionados
+                for (int i = seleccionados.Count - 1; i >= 0; i--) // Recorro los items seleccionados
                 {
                     listBox1.Items.Remove(seleccionados[i]); // Y los elimino de la ListBox correspondiente
                 }
