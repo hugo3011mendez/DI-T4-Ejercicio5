@@ -66,6 +66,8 @@ namespace Ejercicio5
                 {
                     listBox1.Items.Remove(seleccionados[i]); // Y los elimino de la ListBox correspondiente
                 }
+
+                lblTamanho.Text = "Tamaño de la lista 1 : " + listBox1.Items.Count; // Actualizo la etiqueta que muestra el tamaño de la ListBox1
             }
         }
     }
