@@ -71,6 +71,8 @@ namespace Ejercicio5
             }
         }
 
+
+        // Función que indica las acciones a realizar cuando se selecciona un elemento de un ListBox
         private void seleccionDeElementos(object sender, EventArgs e)
         {
             ListBox lista = (ListBox)sender; // Guardo en una variable el ListBox en el que se estén seleccionando los índices
@@ -86,6 +88,53 @@ namespace Ejercicio5
                 else
                 {
                     lblIndices.Text += lista.SelectedIndices[i] + ", ";
+                }
+            }
+        }
+
+
+        // Función que gestiona el traspaso de elementos de una lista a otra
+        private void traspasar(object sender, EventArgs e)
+        {
+            ListBox.SelectedObjectCollection seleccionados; // Creo una variable que recoge los items seleccionados de la listbox
+
+            // Compruebo qué botón de los dos de traspasar ha sido pulsado
+            if (sender == btnTraspasarIzq)
+            {
+                if (listBox1.SelectedItems.Count == 0) // Si no hay ningún elemento seleccionado en la ListBox1...
+                {
+                    MessageBox.Show("No hay ningún elemento seleccionado en la lista 1!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning); // Muestro mensaje de error
+                }
+                else
+                {
+                    seleccionados = listBox1.SelectedItems; // Guardo los elementos seleccionados de la lista en la variable
+
+                    for (int i = seleccionados.Count-1; i >= 0; i--) // Inserto los elementos seleccionados en la otra lista
+                    {
+                        listBox2.Items.Insert(0, seleccionados[i]);
+                    }
+
+                    btnQuitar_Click(sender, e); // Llamo a la función de quitar los elementos seleccionados para ahorrarme código
+                }
+            }
+            else
+            {
+                if (listBox2.SelectedItems.Count == 0) // Si no hay ningún elemento seleccionado en la ListBox2...
+                {
+                    MessageBox.Show("No hay ningún elemento seleccionado en la lista 2!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning); // Muestro mensaje de error
+                }
+                else
+                {
+                    seleccionados = listBox2.SelectedItems;
+
+                    for (int i = seleccionados.Count-1; i >= 0; i--) // Inserto los elementos seleccionados en la otra lista
+                    {
+                        listBox1.Items.Insert(0, seleccionados[i]);
+                    }
+
+                    btnQuitar_Click(sender, e); // Llamo a la función de quitar los elementos seleccionados para ahorrarme código
+
+                    lblTamanho.Text = "Tamaño de la lista 1 : " + listBox1.Items.Count; // Actualizo la etiqueta que muestra el tamaño de la ListBox1
                 }
             }
         }

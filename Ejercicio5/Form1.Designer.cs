@@ -101,6 +101,7 @@
             this.btnTraspasarIzq.TabIndex = 6;
             this.btnTraspasarIzq.Text = "Traspasar >";
             this.btnTraspasarIzq.UseVisualStyleBackColor = true;
+            this.btnTraspasarIzq.Click += new System.EventHandler(this.traspasar);
             // 
             // btnTraspasarDer
             // 
@@ -111,6 +112,7 @@
             this.btnTraspasarDer.TabIndex = 7;
             this.btnTraspasarDer.Text = "< Traspasar";
             this.btnTraspasarDer.UseVisualStyleBackColor = true;
+            this.btnTraspasarDer.Click += new System.EventHandler(this.traspasar);
             // 
             // listBox2
             // 
@@ -135,6 +137,7 @@
             // 
             // Form1
             // 
+            this.AcceptButton = this.btnAnhadir;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(798, 343);
