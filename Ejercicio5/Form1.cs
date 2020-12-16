@@ -70,5 +70,24 @@ namespace Ejercicio5
                 lblTamanho.Text = "Tamaño de la lista 1 : " + listBox1.Items.Count; // Actualizo la etiqueta que muestra el tamaño de la ListBox1
             }
         }
+
+        private void seleccionDeElementos(object sender, EventArgs e)
+        {
+            ListBox lista = (ListBox)sender; // Guardo en una variable el ListBox en el que se estén seleccionando los índices
+
+            lblIndices.Text = "Índices seleccionados : ";
+
+            for (int i = 0; i < lista.SelectedIndices.Count; i++)
+            {
+                if (i == lista.SelectedIndices.Count-1)
+                {
+                    lblIndices.Text += lista.SelectedIndices[i];
+                }
+                else
+                {
+                    lblIndices.Text += lista.SelectedIndices[i] + ", ";
+                }
+            }
+        }
     }
 }

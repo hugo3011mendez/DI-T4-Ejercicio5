@@ -50,6 +50,7 @@
             this.listBox1.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.listBox1.Size = new System.Drawing.Size(261, 204);
             this.listBox1.TabIndex = 0;
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.seleccionDeElementos);
             // 
             // btnAnhadir
             // 
@@ -74,7 +75,7 @@
             // 
             this.lblTamanho.AutoSize = true;
             this.lblTamanho.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.lblTamanho.Location = new System.Drawing.Point(476, 258);
+            this.lblTamanho.Location = new System.Drawing.Point(391, 258);
             this.lblTamanho.Name = "lblTamanho";
             this.lblTamanho.Size = new System.Drawing.Size(80, 24);
             this.lblTamanho.TabIndex = 4;
@@ -120,12 +121,13 @@
             this.listBox2.Name = "listBox2";
             this.listBox2.Size = new System.Drawing.Size(261, 204);
             this.listBox2.TabIndex = 8;
+            this.listBox2.SelectedIndexChanged += new System.EventHandler(this.seleccionDeElementos);
             // 
             // lblIndices
             // 
             this.lblIndices.AutoSize = true;
             this.lblIndices.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.lblIndices.Location = new System.Drawing.Point(476, 297);
+            this.lblIndices.Location = new System.Drawing.Point(391, 299);
             this.lblIndices.Name = "lblIndices";
             this.lblIndices.Size = new System.Drawing.Size(70, 24);
             this.lblIndices.TabIndex = 9;
