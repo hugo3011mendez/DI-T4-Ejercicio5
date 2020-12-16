@@ -7,17 +7,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Ejercicio5
 {
     public partial class Form1 : Form
     {
+        String titulo = "Ejercicio 5";
+        int contadorTitulo;
+
+
         public Form1()
         {
             InitializeComponent();
 
             lblTamanho.Text = "Tamaño de la lista 1 : " + listBox1.Items.Count;
             lblIndices.Text = "";
+
+            Directory.SetCurrentDirectory(Directory.GetCurrentDirectory() + "..\\..\\..\\Properties");
+            contadorTitulo = titulo.Length-1;
         }
 
 
@@ -136,6 +144,36 @@ namespace Ejercicio5
 
                     lblTamanho.Text = "Tamaño de la lista 1 : " + listBox1.Items.Count; // Actualizo la etiqueta que muestra el tamaño de la ListBox1
                 }
+            }
+        }
+
+
+        // Función que gestiona el tick del timer1
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (contadorTitulo != 0)
+            {
+                Text.Insert(0, titulo[contadorTitulo].ToString());
+
+                contadorTitulo --;
+            }
+            else
+            {
+                timer1.Stop(); // Una vez no necesito el timer, lo paro
+            }
+        }
+
+
+        // Función que gestiona el tick del timer2
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            if (Icon == new Icon(Directory.GetCurrentDirectory() + "\\Listas.ico"))
+            {
+                Icon = new Icon(Directory.GetCurrentDirectory() + "\\Listas2.ico");
+            }
+            else
+            {
+                Icon = new Icon(Directory.GetCurrentDirectory() + "\\Listas.ico");
             }
         }
     }
