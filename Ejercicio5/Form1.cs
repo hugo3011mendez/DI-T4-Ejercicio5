@@ -35,6 +35,14 @@ namespace Ejercicio5
             icono2 = new Icon(Directory.GetCurrentDirectory() + "\\Listas2.ico");
 
             Icon = icono1;
+
+            toolTip1.SetToolTip(txtAnhadir, "Caja de texto donde se escribe lo que se quiere añadir a la lista 1");
+            toolTip1.SetToolTip(btnAnhadir, "Añade a la lista 1 lo que hay en la caja de texto");
+            toolTip1.SetToolTip(btnQuitar, "Quita el/los elemento/s seleccionado/s de la lista correspondiente");
+            toolTip1.SetToolTip(listBox1, "Lista donde se añaden los elementos escritos en la caja de texto");
+            toolTip1.SetToolTip(listBox2, "Tamaño : " + listBox2.Items.Count);
+            toolTip1.SetToolTip(btnTraspasarIzq, "Traspasa los elementos seleccionados de la lista 1 a la lista 2");
+            toolTip1.SetToolTip(btnTraspasarDer, "Traspasa los elementos seleccionados de la lista 2 a la lista 1");
         }
 
 
@@ -68,6 +76,7 @@ namespace Ejercicio5
                 else // Si hay seleccionado en la ListBox2...
                 {
                     listBox2.Items.Remove(listBox2.SelectedItem); // Elimino el elemento seleccionado de la ListBox 2
+                    toolTip1.SetToolTip(listBox2, "Tamaño : " + listBox2.Items.Count); // Actualizo el tooltip de la ListBox2
                 }
             }
             else // Si la ListBox1 tiene elementos seleccionados...
@@ -133,6 +142,7 @@ namespace Ejercicio5
 
             btnQuitar_Click(sender, e); // Llamo a la función de quitar los elementos seleccionados para ahorrarme código
             lblTamanho.Text = "Tamaño de la lista 1 : " + listBox1.Items.Count; // Actualizo la etiqueta que muestra el tamaño de la ListBox1
+            toolTip1.SetToolTip(listBox2, "Tamaño : " + listBox2.Items.Count); // Actualizo el tooltip de la ListBox2
         }
 
 
