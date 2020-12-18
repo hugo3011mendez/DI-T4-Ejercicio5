@@ -29,7 +29,7 @@ namespace Ejercicio5
             contadorTimer = 0;
 
             Directory.SetCurrentDirectory(Directory.GetCurrentDirectory() + "..\\..\\..\\Properties");
-            contadorTitulo = titulo.Length-1;
+            contadorTitulo = titulo.Length - 1;
 
             icono1 = new Icon(Directory.GetCurrentDirectory() + "\\Listas.ico");
             icono2 = new Icon(Directory.GetCurrentDirectory() + "\\Listas2.ico");
@@ -162,16 +162,20 @@ namespace Ejercicio5
         {
             contadorTimer++;
 
-            if (contadorTimer % 200 == 0)
+            if (contadorTitulo != -1)
             {
-                if (contadorTitulo != 0)
-                {
-                    Text = titulo[contadorTitulo] + Text;
+                Text = titulo[contadorTitulo] + Text;
 
-                    contadorTitulo --;
-                }
+                contadorTitulo --;
             }
-            else if (contadorTimer % 400 == 0)
+            else
+            {
+                Text = "";
+                contadorTitulo = titulo.Length - 1;
+            }
+
+
+            if (contadorTimer % 2 == 0)
             {
                 if (Icon == icono1)
                 {
