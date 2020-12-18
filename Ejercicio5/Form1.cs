@@ -65,14 +65,9 @@ namespace Ejercicio5
                 {
                     MessageBox.Show("No hay ningún elemento seleccionado!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning); // Muestro mensaje de error
                 }
-                else // Si hay seleccionados en la ListBox2...
+                else // Si hay seleccionado en la ListBox2...
                 {
-                    seleccionados = listBox2.SelectedItems; // Establezco la variable seleccionados y la igualo a la colección de items seleccionados
-
-                    for (int i = seleccionados.Count - 1; i >= 0; i--) // Recorro los items seleccionados
-                    {
-                        listBox2.Items.Remove(seleccionados[i]); // Y los elimino de la ListBox correspondiente
-                    }
+                    listBox2.Items.Remove(listBox2.SelectedItem); // Elimino el elemento seleccionado de la ListBox 2
                 }
             }
             else // Si la ListBox1 tiene elementos seleccionados...
@@ -118,15 +113,11 @@ namespace Ejercicio5
             // Compruebo qué botón de los dos de traspasar ha sido pulsado
             if (sender == btnTraspasarIzq)
             {
-                if (listBox1.SelectedItems.Count == 0) // Si no hay ningún elemento seleccionado en la ListBox1...
-                {
-                    MessageBox.Show("No hay ningún elemento seleccionado en la lista 1!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning); // Muestro mensaje de error
-                }
-                else
+                if (listBox1.SelectedItems.Count != 0) // Si hay algún elemento seleccionado en la ListBox1...
                 {
                     seleccionados = listBox1.SelectedItems; // Guardo los elementos seleccionados de la lista en la variable
 
-                    for (int i = seleccionados.Count-1; i >= 0; i--) // Inserto los elementos seleccionados en la otra lista
+                    for (int i = seleccionados.Count - 1; i >= 0; i--) // Inserto los elementos seleccionados en la otra lista
                     {
                         listBox2.Items.Insert(0, seleccionados[i]);
                     }
@@ -134,18 +125,9 @@ namespace Ejercicio5
             }
             else
             {
-                if (listBox2.SelectedItems.Count == 0) // Si no hay ningún elemento seleccionado en la ListBox2...
+                if (listBox2.SelectedItems.Count != 0) // Si hay algún elemento seleccionado en la ListBox2...
                 {
-                    MessageBox.Show("No hay ningún elemento seleccionado en la lista 2!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning); // Muestro mensaje de error
-                }
-                else
-                {
-                    seleccionados = listBox2.SelectedItems;
-
-                    for (int i = seleccionados.Count-1; i >= 0; i--) // Inserto los elementos seleccionados en la otra lista
-                    {
-                        listBox1.Items.Insert(0, seleccionados[i]);
-                    }
+                    listBox1.Items.Insert(0, listBox2.SelectedItem); // Inserto el elemento seleccionado de la lista 2 en la lista 1
                 }
             }
 
