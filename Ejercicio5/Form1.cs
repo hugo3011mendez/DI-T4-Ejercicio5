@@ -14,7 +14,7 @@ namespace Ejercicio5
     public partial class Form1 : Form
     {
         String titulo = "Ejercicio 5";
-        int contadorTitulo, contadorTimer;
+        int contadorTitulo, contadorTimer = 0;
         Icon icono1, icono2;
 
         public Form1()
@@ -25,8 +25,6 @@ namespace Ejercicio5
 
             lblTamanho.Text = "Tamaño de la lista 1 : " + listBox1.Items.Count;
             lblIndices.Text = "";
-
-            contadorTimer = 0;
 
             Directory.SetCurrentDirectory(Directory.GetCurrentDirectory() + "..\\..\\..\\Properties");
             contadorTitulo = titulo.Length - 1;
@@ -157,7 +155,7 @@ namespace Ejercicio5
 
                 contadorTitulo --;
             }
-            else
+            else // Cuando ya se ha mostrado todo el título, vuelve a mostrarse otra vez con scroll
             {
                 Text = "";
                 contadorTitulo = titulo.Length - 1;
