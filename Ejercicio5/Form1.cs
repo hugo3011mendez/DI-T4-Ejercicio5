@@ -21,6 +21,8 @@ namespace Ejercicio5
         {
             InitializeComponent();
 
+            Text = "";
+
             lblTamanho.Text = "Tamaño de la lista 1 : " + listBox1.Items.Count;
             lblIndices.Text = "";
 
@@ -31,6 +33,8 @@ namespace Ejercicio5
 
             icono1 = new Icon(Directory.GetCurrentDirectory() + "\\Listas.ico");
             icono2 = new Icon(Directory.GetCurrentDirectory() + "\\Listas2.ico");
+
+            Icon = icono1;
         }
 
 
@@ -162,7 +166,7 @@ namespace Ejercicio5
             {
                 if (contadorTitulo != 0)
                 {
-                    Text.Insert(0, titulo[contadorTitulo].ToString());
+                    Text = titulo[contadorTitulo] + Text;
 
                     contadorTitulo --;
                 }
