@@ -130,8 +130,6 @@ namespace Ejercicio5
                     {
                         listBox2.Items.Insert(0, seleccionados[i]);
                     }
-
-                    btnQuitar_Click(sender, e); // Llamo a la función de quitar los elementos seleccionados para ahorrarme código
                 }
             }
             else
@@ -148,12 +146,11 @@ namespace Ejercicio5
                     {
                         listBox1.Items.Insert(0, seleccionados[i]);
                     }
-
-                    btnQuitar_Click(sender, e); // Llamo a la función de quitar los elementos seleccionados para ahorrarme código
-
-                    lblTamanho.Text = "Tamaño de la lista 1 : " + listBox1.Items.Count; // Actualizo la etiqueta que muestra el tamaño de la ListBox1
                 }
             }
+
+            btnQuitar_Click(sender, e); // Llamo a la función de quitar los elementos seleccionados para ahorrarme código
+            lblTamanho.Text = "Tamaño de la lista 1 : " + listBox1.Items.Count; // Actualizo la etiqueta que muestra el tamaño de la ListBox1
         }
 
 
