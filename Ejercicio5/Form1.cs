@@ -14,8 +14,8 @@ namespace Ejercicio5
     public partial class Form1 : Form
     {
         String titulo = "Ejercicio 5";
-        int contadorTitulo;
-
+        int contadorTitulo, contadorTimer;
+        Icon icono1, icono2;
 
         public Form1()
         {
@@ -24,8 +24,13 @@ namespace Ejercicio5
             lblTamanho.Text = "Tamaño de la lista 1 : " + listBox1.Items.Count;
             lblIndices.Text = "";
 
+            contadorTimer = 0;
+
             Directory.SetCurrentDirectory(Directory.GetCurrentDirectory() + "..\\..\\..\\Properties");
             contadorTitulo = titulo.Length-1;
+
+            icono1 = new Icon(Directory.GetCurrentDirectory() + "\\Listas.ico");
+            icono2 = new Icon(Directory.GetCurrentDirectory() + "\\Listas2.ico");
         }
 
 
@@ -151,29 +156,27 @@ namespace Ejercicio5
         // Función que gestiona el tick del timer1
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (contadorTitulo != 0)
-            {
-                Text.Insert(0, titulo[contadorTitulo].ToString());
+            contadorTimer++;
 
-                contadorTitulo --;
-            }
-            else
+            if (contadorTimer % 200 == 0)
             {
-                timer1.Stop(); // Una vez no necesito el timer, lo paro
-            }
-        }
+                if (contadorTitulo != 0)
+                {
+                    Text.Insert(0, titulo[contadorTitulo].ToString());
 
-
-        // Función que gestiona el tick del timer2
-        private void timer2_Tick(object sender, EventArgs e)
-        {
-            if (Icon == new Icon(Directory.GetCurrentDirectory() + "\\Listas.ico"))
-            {
-                Icon = new Icon(Directory.GetCurrentDirectory() + "\\Listas2.ico");
+                    contadorTitulo --;
+                }
             }
-            else
+            else if (contadorTimer % 400 == 0)
             {
-                Icon = new Icon(Directory.GetCurrentDirectory() + "\\Listas.ico");
+                if (Icon == icono1)
+                {
+                    Icon = icono2;
+                }
+                else
+                {
+                    Icon = icono1;
+                }
             }
         }
     }
